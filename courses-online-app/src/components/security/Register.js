@@ -1,9 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Container, Typography, Grid, TextField, Button } from '@material-ui/core';
 import style from '../Tool/Style';
 
 
 const RegisterUser= () =>{
+    const [user, setUser] = useState({
+            Name:'',
+            Email:'',
+            Password:'',
+            ConfirmPassword:'',
+            Username:''
+            
+    })
+
+    const enterValuesMemory = e => {
+            const {name, value} = e.target;
+            setUser(before)
+    }
+
     return (
         <Container component="main" maxWidth="md" justify="center">
             <div style={style.paper}>
@@ -13,7 +27,7 @@ const RegisterUser= () =>{
                 <form style= {style.form}>
                     <Grid container spacing = {2}>
                          <Grid item xs={12} md={6}> 
-                            <TextField name="name" variant="outlined" fullWidth label="Name" />
+                            <TextField name="Name" value={user.Name} onChange={enterValuesMemory} variant="outlined" fullWidth label="Name" />
                          </Grid>
                          <Grid item xs={12} md={6}>
                             <TextField name="lastname" variant="outlined" fullWidth label="LastName"/>
